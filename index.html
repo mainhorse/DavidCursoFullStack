@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> dia 3 </title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+    	<script>
+    		/* Do while (Estructura iterativa)
+    		   El bucle se ejecuta al menos una vez sin importar 
+    		   la condicion que estamos evaluando
+
+    		   do{
+	              bloque de còdigo
+	              } while(condicion)
+    		*/
+    		let i = 0;
+
+    		do{
+    			i++;
+    			document.write(`Numero: ${i} <br>`)
+    		} while(i<10);
+
+    		/* metodos o funciones para cadenas
+                Objeto String - rompe una cadena a partir de un determinado caracter
+                split
+                length
+                splice
+                tolowerCase
+                toUpperCase
+                join
+                concat
+                chartAt
+                trim
+                repeat
+                str
+                substr
+                lastIndexOf
+                indexOf
+    		*/
+    		var cadena = prompt("ingrese una frase");
+    		// hola como estas
+    		// 0123456789
+    		document.write(`Longitud de la cadena ${cadena.length} <br>`); 
+    		document.write(`Texto en Mayùscula ${cadena.toUpperCase()} <br>`);
+    		document.write(`texto en minuscula ${cadena.toLowerCase()} <br>`);
+    		document.write(`caracter en primera posicion (1) ${cadena.charAt(1)} <br>`);
+
+    		var caracter = prompt("Escriba un caracter a buscar");
+    		document.write(`<hr> <br> posicion de letra: ${cadena.indexOf(caracter)} <br>`);
+    		document.write(`posicion de la ultima letra: ${cadena.lastIndexOf(caracter)} <br>`);
+    		document.write(cadena.split(""));
+    		// replace, substr
+    		document.write(`<br> replace : <br> `);
+            var palabra = "puede salir de la casa en cuarentena";
+            var remplazar = palabra.replace("puede","no puede")
+            document.write(`frase incorrecta : ${palabra} <br>`);
+            document.write(`frase correcta: ${remplazar} <br>`);
+
+    		/* 
+    		-------------------------- Mètodos o funciones para Arreglos----------------------------
+
+    		join - concatenar a partir de un simbolo o un caracter
+    		concat - concatenar o unir dos o mas arreglos
+    		push - agrega datos a un arreglo, siempre los anexa en la ultima posicion
+    		splice - optener una porciòn del arreglo
+    		shift - Eliminar el dato que se encuentra en la posicion 0
+    		sort - ordenar un arreglo de mayoy a menor
+    		unshift - Agrega datos en la posicion 0
+    		map (ESC)  **
+    		reverse - Invertir el arreglo
+    		pop - Eliminamos el dato de la ultima posicion del arreglo
+    		*/
+            
+    		let alfa1 = ["A","B","C"];
+    		let alfa2 = ["D","E","F"];
+    		let grupoA, grupoB, inverso;
+
+    		grupoA = alfa1.concat(alfa2);
+    		document.write(`<br> conactenar:  ${grupoA} <br>`);
+
+    		grupoB = grupoA.join("-");
+    		document.write(`join:  ${grupoB} <br>`);
+
+    		grupoA.pop();
+    		document.write(`pop:  ${grupoA} <br>`);
+
+    		grupoA.push("G");
+    		document.write(`push:  ${grupoA} <br>`);
+
+    		grupoA.shift();
+    		document.write(`shift:  ${grupoA} <br>`);
+
+    		grupoA.unshift("z");
+    		document.write(`unshift:  ${grupoA} <br>`);
+
+    		inverso = grupoA.reverse();
+    		document.write(`inverso:  ${inverso} <br>`);
+
+    		// splice
+
+    		var meses = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre", "octubre" , "noviembre", "diciembre"];
+
+    		meses.splice(meses.length,0,"cambio");
+    		document.write(meses);
+
+            /* este codigo pide al usuario 5 valores numericos y quita los ceros que se encuentren en
+            estos valores*/
+
+    		var ejemplo1 = [""];
+    		var newEjem1 = [""];
+    		
+    		for(i=0 ; i<5;i++){
+    			ejemplo1[i] = prompt("ingrese el dato " + (i+1));
+    		}    		
+
+    		for(var j=0 ; j<5 ; j++){
+    			var oredenDato =[""];
+    			oredenDato = ejemplo1[j];
+    			
+    			for(var k = 0 ; k < oredenDato.length; k++){
+    				if(oredenDato[k] != 0){
+    					if(k == 0){
+                            newEjem1[j] = oredenDato[k]; 
+                        } else {
+                        	 newEjem1[j] = newEjem1[j] + oredenDato[k]; 
+                        }
+                    }  
+                    else {
+                    	newEjem1[j] = newEjem1[j];
+                    }
+    			} 
+    		}
+
+            document.write(`<br> valores ingresados: ${ejemplo1} <br>`);
+            document.write(`<br> valores cambiados: ${newEjem1} <br>`);
+
+            /* este codigo pide un valor de ingresos que escoje el usuario y organiza primero los strings y despues los numeros*/
+
+            var ejemplo2 = [""];
+    		var stringEje = [""];
+    		var numeroEje = [""];
+    		
+    		for(i=0 ; i<5;i++){
+    			ejemplo2[i] = prompt("ingrese la palabra " + (i+1)).charAt(0);
+    		}   
+
+    		for(j=0 ; j<5 ; j++){
+
+    			var cambiar = Number(ejemplo2[j]);
+    			if(isNaN(cambiar)){
+    				stringEje.push(ejemplo2[j]);
+    				console.log("if " + ejemplo2[j]);
+    			} else{
+    				numeroEje.push(ejemplo2[j]);
+    				console.log("else " + ejemplo2[j]);
+    			}    			
+    		} 
+            stringEje = stringEje.sort();
+            numeroEje = numeroEje.sort();
+    		var unir = stringEje.concat(numeroEje);
+    		document.write(unir);
+
+    	</script>
+    </body>
+</html>
